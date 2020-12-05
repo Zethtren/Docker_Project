@@ -10,6 +10,9 @@ Then you simply go into the directory you cloned it into and run:
 
 docker-compose up -d
 
+## If you don't have Docker:
+Just follow the instructions for docker-compose [here](https://docs.docker.com/compose/install/)
+
 This will spin up 4 containers. 
 - 1 MS SQL instance
 - 3 scrapers (BTC-USD, ETH-BTC, ETH-USD)
