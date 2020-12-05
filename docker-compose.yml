@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  sql-server:
+    image: zethtren/mssql_server:latest
+    hostname: sql-server
+    container_name: sql-server
+    ports:
+      - "1434:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=asdffdsaasdffdsa1234!
+      - MSSQL_PI=Developer
+      - DB_NAME=ticks
+    restart: on-failure
+  scraper_BTCUSD:
+    depends_on: 
+      - sql-server
+    image: zethtren/scraper:latest
+    hostname: scraper_BTCUSD
+    container_name: scraper_BTCUSD
+    environment: 
+      - SA_PASSWORD=asdffdsaasdffdsa1234! #Predefined in DockerFile working on making this adaptable
+      - TABLE_NAME=BTC-USD
+      - DB_NAME=ticks
+    restart: on-failure
+  scraper_BTCETH:
+    depends_on: 
+      - sql-server
+    image: zethtren/scraper:latest
+    hostname: scraper_ETHBTC
+    container_name: scraper_ETHBTC
+    environment: 
+      - SA_PASSWORD=asdffdsaasdffdsa1234! #Predefined in DockerFile working on making this adaptable
+      - TABLE_NAME=ETH-BTC
+      - DB_NAME=ticks
+    restart: on-failure
+  scraper_ETHUSD:
+    depends_on: 
+      - sql-server
+    image: zethtren/scraper:latest
+    hostname: scraper_ETHUSD
+    container_name: scraper_ETHUSD
+    environment: 
+      - SA_PASSWORD=asdffdsaasdffdsa1234! #Predefined in DockerFile working on making this adaptable
+      - TABLE_NAME=ETH-USD
+      - DB_NAME=ticks
+    restart: on-failure
