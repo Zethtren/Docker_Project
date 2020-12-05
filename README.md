@@ -2,9 +2,13 @@
 
 This app uses an open-source library I found called copra which can be viewed here https://github.com/tpodlaski/copra
 
-This project can be cloned via 
+This project can be cloned via:
 
-Then you simply go into the directory you cloned it into and run docker-compose up -d
+git clone https://github.com/Zethtren/Docker_Project.git
+
+Then you simply go into the directory you cloned it into and run:
+
+docker-compose up -d
 
 This will spin up 4 containers. 
 - 1 MS SQL instance
