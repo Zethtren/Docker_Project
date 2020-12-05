@@ -17,6 +17,17 @@ This will spin up 4 containers.
 - 1 MS SQL instance
 - 3 scrapers (BTC-USD, ETH-BTC, ETH-USD)
 
+### As of now:
+Connection information
+- username: sa
+- password: asdffdsaasdffdsa1234!
+- server: localhost,1433
+
+These can easily be accesed from SSMS or Azure Data Studio. 
+
+I am working on making it so you cann declare the username and password in the docker-compose but right now they jsut reflect the data i built into the mssql_server instance
+
+
 These scrapers will collect live ticker data and deposit it into your SQL server instance. 
 
 The tables will be named (BTC-USD, ETH-BTC, ETH-USD) respectively and they will be stored in a newly created database called ticks. 
@@ -24,7 +35,6 @@ The tables will be named (BTC-USD, ETH-BTC, ETH-USD) respectively and they will 
 All portions of the instance are designed to reboot automatically if a failure occurs but, for data assurance I recommend running it in two separate locations.
 
 If you want to change any part you can freely modify the variables.
-As of now the password cannot be modified as I am still working on separating it from the start-up script. I will update this when that change has been made.
 
 If you want to access your sql server from a different port than 1433 simply change the first port number in 
 
